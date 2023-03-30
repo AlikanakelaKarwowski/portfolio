@@ -18,10 +18,11 @@ export default function Hero({}: Props) {
     return (
         <div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
             <BackgroundCircles />
-            <h1>
-                <span>{text}</span>
-                <Cursor cursorColor="#F7AB0A" />
-            </h1>
+            <img
+                className="relative rounded-full h-32 w-32 mx-auto object-cover"
+                src="https://media.licdn.com/dms/image/C4D03AQFXpzgZ4aF-gw/profile-displayphoto-shrink_800_800/0/1633888864421?e=1685577600&v=beta&t=dQvHoApiiek_frBeJr-xG9A5D0oiYToH97et5cZYDWg"
+                alt=""
+            />
         </div>
     );
 }
