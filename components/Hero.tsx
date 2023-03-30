@@ -23,6 +23,13 @@ export default function Hero({}: Props) {
                 src="https://media.licdn.com/dms/image/C4D03AQFXpzgZ4aF-gw/profile-displayphoto-shrink_800_800/0/1633888864421?e=1685577600&v=beta&t=dQvHoApiiek_frBeJr-xG9A5D0oiYToH97et5cZYDWg"
                 alt=""
             />
+            <div className="z-20">
+                <h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[16px]">Software Engineer</h2>
+                <h1 className="text-4xl lg:text-5xl font-semibold scroll-px-10">
+                    <span className="mr-3">{text}</span>
+                    <Cursor cursorColor="#F7AB0A" />
+                </h1>
+            </div>
         </div>
     );
 }
