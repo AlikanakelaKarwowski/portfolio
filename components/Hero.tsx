@@ -11,7 +11,7 @@ export default function Hero({}: Props) {
             "I'm a Full Stack Developer",
             "I Love Programming",
             "I Love Dogs",
-            "And I Love Fish!",
+            "And I Love Fish! 🐠",
         ],
         loop: true,
         delaySpeed: 2000,
@@ -43,6 +43,11 @@ export default function Hero({}: Props) {
                     </Link>
                     <Link href="#projects">
                         <button className="heroBtn">Projects</button>
+                    </Link>
+                </div>
+                <div className="pt-5 flex flex-row justify-center items-center">
+                    <Link href="#contact">
+                        <button className="heroBtn">Contact Me</button>
                     </Link>
                 </div>
             </div>
