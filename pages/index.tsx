@@ -27,7 +27,9 @@ export default function Home() {
             <section id="skills" className="snap-start">
                 <Skills />
             </section>
-            {/* Skills */}
+            <section id="projects" className="snap-start">
+                <Projects />
+            </section>
             {/* Projects */}
             {/* Contact */}
         </div>
