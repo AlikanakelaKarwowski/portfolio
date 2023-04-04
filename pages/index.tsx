@@ -7,14 +7,15 @@ import WorkExperience from "@/components/WorkExperience";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import { GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticProps } from "next";
 import { PageInfo, Experience, Social, Project, Skill } from "@/typings";
 import { fetchExperiences } from "@/utils/fetchExperiences";
 import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchProjects } from "@/utils/fetchProjects";
 import { fetchSkills } from "@/utils/fetchSkills";
 import { fetchSocials } from "@/utils/fetchSocials";
-
+import useAsyncEffect from "use-async-effect";
+import { useState } from "react";
 type Props = {
     pageInfo: PageInfo;
     experiences: Experience[];
@@ -25,8 +26,24 @@ type Props = {
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ pageInfo, experiences, projects, skills, socials }: Props) {
-    return (
+export default function Home({}: Props) {
+    const [isLoaded, setIsLoaded] = useState(false);
+    //create use state to save info from useAsyncEffect
+    const [pageInfo, setPageInfo] = useState<PageInfo>({} as PageInfo);
+    const [experiences, setExperiences] = useState<Experience[]>([]);
+    const [skills, setSkills] = useState<Skill[]>([]);
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [socials, setSocials] = useState<Social[]>([]);
+
+    useAsyncEffect(async () => {
+        setPageInfo(await fetchPageInfo());
+        setExperiences(await fetchExperiences());
+        setSkills(await fetchSkills());
+        setProjects(await fetchProjects());
+        setSocials(await fetchSocials());
+        setIsLoaded(true);
+    }, []);
+    return isLoaded ? (
         <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]">
             <Head>
                 <title>Alexanders Portfolio</title>
@@ -51,23 +68,18 @@ export default function Home({ pageInfo, experiences, projects, skills, socials 
                 <Contact />
             </section>
         </div>
-    );
+    ) : null;
 }
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-    const pageInfo: PageInfo = await fetchPageInfo();
-    const experiences: Experience[] = await fetchExperiences();
-    const skills: Skill[] = await fetchSkills();
-    const projects: Project[] = await fetchProjects();
-    const socials: Social[] = await fetchSocials();
-    return {
-        props: {
-            pageInfo,
-            experiences,
-            skills,
-            projects,
-            socials,
-        },
-        revalidate: 6000,
-    };
-};
+// export const getServerProps: GetServerSideProps<Props> = async () => {
+
+//     return {
+//         props: {
+//             pageInfo,
+//             experiences,
+//             skills,
+//             projects,
+//             socials,
+//         },
+//     };
+// };
