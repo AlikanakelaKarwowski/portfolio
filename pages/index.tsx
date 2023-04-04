@@ -33,10 +33,10 @@ export default function Home({ pageInfo, experiences, projects, skills, socials 
             </Head>
             <Header socials={socials} />
             <section id="hero" className="snap-start">
-                <Hero />
+                <Hero pageInfo={pageInfo} />
             </section>
             <section id="about" className="snap-start">
-                <About />
+                <About pageInfo={pageInfo} />
             </section>
             <section id="experience" className="snap-start">
                 <WorkExperience />
@@ -68,6 +68,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             projects,
             socials,
         },
-        revalidate: 86400,
+        revalidate: 10,
     };
 };
