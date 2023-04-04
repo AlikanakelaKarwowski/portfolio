@@ -42,7 +42,7 @@ export default function Home({ pageInfo, experiences, projects, skills, socials 
                 <WorkExperience experiences={experiences} />
             </section>
             <section id="skills" className="snap-start">
-                <Skills />
+                <Skills skills={skills} />
             </section>
             <section id="projects" className="snap-start">
                 <Projects />

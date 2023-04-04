@@ -31,11 +31,11 @@ function ExperienceCard({ experience }: Props) {
                     ))}
                 </div>
                 <p className="uppercase py-5 text-gray-300">
-                    {experience.dateStarted} -> {experience.dateEnded}
+                    {new Date(experience.dateStarted).toDateString()} - {new Date(experience.dateEnded).toDateString()}
                 </p>
-                <ul className="list-disc space-y-4 ml-5 text-md">
-                    {experience.points.map((point) => (
-                        <li key={point} className="text-[#F7AB0A]">
+                <ul className="list-disc space-y-4 ml-5 text-md max-h-64 overflow-y-scroll scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]">
+                    {experience.points.map((point, i) => (
+                        <li key={i} className="text-[#F7AB0A]">
                             {point}
                         </li>
                     ))}
