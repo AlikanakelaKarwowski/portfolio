@@ -36,7 +36,7 @@ export default function Home({ pageInfo, experiences, projects, skills, socials 
                 <Hero pageInfo={pageInfo} />
             </section>
             <section id="about" className="snap-start">
-                <About />
+                <About pageInfo={pageInfo} />
             </section>
             <section id="experience" className="snap-start">
                 <WorkExperience />
