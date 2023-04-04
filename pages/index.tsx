@@ -31,7 +31,7 @@ export default function Home({ pageInfo, experiences, projects, skills, socials 
             <Head>
                 <title>Alexanders Portfolio</title>
             </Head>
-            <Header />
+            <Header socials={socials} />
             <section id="hero" className="snap-start">
                 <Hero />
             </section>
