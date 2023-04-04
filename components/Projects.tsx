@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-type Props = {};
+import { Project } from "@/typings";
+import { urlFor } from "@/sanity";
+type Props = {
+    projects: Project[];
+};
 
-function Projects({}: Props) {
-    const projects: Array<any> = ["Discord Bot", "In House MTurk Alternative", "This Portfolio Page"];
+function Projects({ projects }: Props) {
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -27,20 +30,28 @@ function Projects({}: Props) {
                             transition={{ duration: 1.2 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftechviral.net%2Fwp-content%2Fuploads%2F2018%2F10%2FDiscord-bots.jpg&f=1&nofb=1&ipt=863f06be54a439443f84045f200df3d49f4923ab089c676aa8a0c20007c746fb&ipo=images"
+                            src={urlFor(project.image).url()}
                             alt=""
+                            className="h-60 xl:h-[400px]"
                         />
                         <div className="space-y-10 px-0 md:px-10 max-w-6xl">
                             <h4 className="text-4xl font-semibold text-center">
                                 <span className="underline decoration-[#F7AB0A]/50">
                                     Case Study {i + 1} of {projects.length}:
                                 </span>{" "}
-                                {project}
+                                {project.title}
                             </h4>
-                            <p className="text-lg text-center md:text-left">
-                                DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT{" "}
-                                DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT DUMMY TEXT{" "}
-                            </p>
+                            <div className="flex items-center space-x-5 justify-center ">
+                                {project.technologies.map((technology) => (
+                                    <img
+                                        className="h-10 w-10 rounded-full bg-white"
+                                        key={technology._id}
+                                        src={urlFor(technology.image).url()}
+                                        alt=""
+                                    />
+                                ))}
+                            </div>
+                            <p className="text-md xl:text-xl text-center md:text-left">{project.summary}</p>
                         </div>
                     </div>
                 ))}
