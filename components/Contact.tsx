@@ -20,7 +20,8 @@ function Contact({}: Props) {
             <h3 className="sectionHeader">Contact</h3>
             <div className="flex flex-col space-y-10 z-20">
                 <h4 className="text-4xl font-semibold text-center">
-                    I've got the skills you need. <span className="decoration-[#F7AB0A]/50 underline">Let's Talk</span>
+                    I&apos;ve got the skills you need.{" "}
+                    <span className="decoration-[#F7AB0A]/50 underline">Let&apos;s Talk</span>
                 </h4>
                 <div className="space-y-10 z-20">
                     <div className="flex item-center space-x-5 justify-center">

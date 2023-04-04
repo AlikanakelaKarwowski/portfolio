@@ -48,7 +48,7 @@ export default function About({ pageInfo }: Props) {
                     I have a lot of experience programming, ranging from being able to successfully teach and explain
                     complicated programming concepts to non tech-inclined stakeholders and business divisions, to
                     developing multiple full stack applications for both the desktop and web, to successful cloud
-                    deployment, to fast and efficient backend api's to suit the clients needs.
+                    deployment, to fast and efficient backend api&apos;s to suit the clients needs.
                 </p>
             </div>
         </motion.div>
