@@ -34,7 +34,7 @@ function Contact({}: Props) {
                     </div>
                     <div className="flex item-center space-x-5 justify-center">
                         <MapPinIcon className="text-[#F7AB0A] h-7 w-7 animate-pulse" />
-                        <p className="text-2xl">4947 N Nile Dr</p>
+                        <p className="text-2xl">4947 N Nile Dr Lehi UT, 84043</p>
                     </div>
                 </div>
 
